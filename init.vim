@@ -26,9 +26,12 @@ if dein#check_install(['vimproc'])
     call dein#install(['vimproc'])
 endif
 
+
 if dein#check_install()
     call dein#install()
 endif
+
+
 
 set number
 "set termguicolors
@@ -75,6 +78,16 @@ vmap <space> [prefix]
 " 置換コマンドの補完
 nnoremap [prefix]r :%s///gc<Left><Left><Left>
 vnoremap [prefix]r :s///gc<Left><Left><Left>
+
+
+" -------------------------------------------------------------------
+" deoplete
+" -------------------------------------------------------------------
+"{{{
+set runtimepath+=~/.cache/dein/repos/github.com/Shougo/deoplete.nvim/
+let g:deoplete#enable_at_startup = 1
+"}}}
+
 
 " -------------------------------------------------------------------
 " caw.vim
