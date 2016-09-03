@@ -42,4 +42,83 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 
+" Insertモード時に水平ラインを表示する
+set nocursorline
+autocmd InsertEnter,InsertLeave * set cursorline!
+
+" Shiftを押しながら移動キーで、3行分カーソル移動。
+nnoremap <S-j> 3j
+nnoremap <S-k> 3k
+vnoremap <S-j> 3j
+vnoremap <S-k> 3k
+
+" Shiftを押しながら移動キーで、行頭、行末移動。
+nnoremap <S-h> ^
+nnoremap <S-l> $
+
+" 保存しなくてもバッファ切り替えが出来る
+set hidden
+
+" Ctrl-s で保存
+nnoremap <silent> <C-s> :w<CR>
+
+noswapfile
+
+
+
+
+" prefix-key for Keymapping
+nnoremap [prefix] <Nop>
+nmap <space> [prefix]
+vmap <space> [prefix]
+
+
+
+" -------------------------------------------------------------------
+" caw.vim
+" -------------------------------------------------------------------
+"{{{
+
+" コメントアウト
+nmap [prefix]/ <Plug>(caw:i:toggle)
+vmap [prefix]/ <Plug>(caw:i:toggle)
+
+"}}}
+
+
+" -------------------------------------------------------------------
+" vim-easy-align
+" -------------------------------------------------------------------
+"{{{
+
+" Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
+vmap <Enter> <Plug>(EasyAlign)
+
+"}}}
+
+" -------------------------------------------------------------------
+" vim-textobj-user
+" -------------------------------------------------------------------
+"  {{{
+
+omap  a, <Plug>(textobj-parameter-a)
+xmap  a, <Plug>(textobj-parameter-a)
+
+omap  i, <Plug>(textobj-parameter-i)
+xmap  i, <Plug>(textobj-parameter-i)
+
+
+
+"  }}}
+
+" -------------------------------------------------------------------
+" vim-operator-user
+" -------------------------------------------------------------------
+" {{{
+
+map r <Plug>(operator-replace)
+
+" }}}
+
+
 
