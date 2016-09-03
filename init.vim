@@ -72,7 +72,9 @@ nnoremap [prefix] <Nop>
 nmap <space> [prefix]
 vmap <space> [prefix]
 
-
+" 置換コマンドの補完
+nnoremap [prefix]r :%s///gc<Left><Left><Left>
+vnoremap [prefix]r :s///gc<Left><Left><Left>
 
 " -------------------------------------------------------------------
 " caw.vim
