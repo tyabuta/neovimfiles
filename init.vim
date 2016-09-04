@@ -1,4 +1,8 @@
 
+" -------------------------------------------------------------------
+" dein
+" -------------------------------------------------------------------
+"{{{
 let s:dein_dir = expand('~/.cache/dein')
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 
@@ -31,7 +35,13 @@ if dein#check_install()
     call dein#install()
 endif
 
+" }}}
 
+
+" -------------------------------------------------------------------
+" 表示設定
+" -------------------------------------------------------------------
+" {{{
 
 set number
 "set termguicolors
@@ -49,35 +59,59 @@ set expandtab
 set nocursorline
 autocmd InsertEnter,InsertLeave * set cursorline!
 
-" Shiftを押しながら移動キーで、3行分カーソル移動。
-nnoremap <S-j> 3j
-nnoremap <S-k> 3k
-vnoremap <S-j> 3j
-vnoremap <S-k> 3k
-
-" Shiftを押しながら移動キーで、行頭、行末移動。
-nnoremap <S-h> ^
-nnoremap <S-l> $
-
-" 保存しなくてもバッファ切り替えが出来る
-set hidden
-
-" Ctrl-s で保存
-nnoremap <silent> <C-s> :w<CR>
-
-noswapfile
+" }}}
 
 
-
+" -------------------------------------------------------------------
+" キーバインド
+" -------------------------------------------------------------------
+" {{{
 
 " prefix-key for Keymapping
 nnoremap [prefix] <Nop>
 nmap <space> [prefix]
 vmap <space> [prefix]
 
+" Shiftを押しながら移動キーで、3行分カーソル移動。
+noremap <S-j> 3j
+noremap <S-k> 3k
+
+" Shiftを押しながら移動キーで、行頭、行末移動。
+nnoremap <S-h> ^
+nnoremap <S-l> $
+
+" Ctrl-s で保存
+nnoremap <silent> <C-s> :w<CR>
+
 " 置換コマンドの補完
 nnoremap [prefix]r :%s///gc<Left><Left><Left>
 vnoremap [prefix]r :s///gc<Left><Left><Left>
+
+" タブで補完を確定する。
+inoremap <expr><TAB>   pumvisible() ? "\<Right>" : "\<TAB>"
+
+" インサートモードのカーソル移動
+" j,kはメニュー展開時は<C-n>,<C-p>に展開する
+inoremap <expr><C-j> pumvisible() ? "\<C-n>" : "\<Down>"
+inoremap <expr><C-k> pumvisible() ? "\<C-p>" : "\<Up>"
+
+inoremap <C-h> <Left>
+inoremap <C-l> <Right>
+
+" }}}
+
+" -------------------------------------------------------------------
+" その他
+" -------------------------------------------------------------------
+" {{{
+
+noswapfile
+
+" 保存しなくてもバッファ切り替えが出来る
+set hidden
+
+
+" }}}
 
 
 " -------------------------------------------------------------------
@@ -134,6 +168,7 @@ xmap  i, <Plug>(textobj-parameter-i)
 map r <Plug>(operator-replace)
 
 " }}}
+
 
 
 
