@@ -72,6 +72,9 @@ nnoremap [prefix] <Nop>
 nmap <space> [prefix]
 vmap <space> [prefix]
 
+nmap [prefix]h :nohlsearch<CR>
+
+
 " Shiftを押しながら移動キーで、3行分カーソル移動。
 noremap <S-j> 3j
 noremap <S-k> 3k
