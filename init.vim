@@ -101,6 +101,10 @@ inoremap <expr><C-k> pumvisible() ? "\<C-p>" : "\<Up>"
 inoremap <C-h> <Left>
 inoremap <C-l> <Right>
 
+" terminalモードを抜ける
+:tnoremap <C-\><C-\> <C-\><C-n>
+
+
 " }}}
 
 " -------------------------------------------------------------------
